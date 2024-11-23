@@ -1,0 +1,78 @@
+﻿@model EN_Assignment5.Models.Hold
+@{
+Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+    <body>
+    
+    <ul class="nav-menu" style="list-style-type: none;">
+        <li><a href="https://localhost:7080/">Home</a></li>
+        <li><a href="https://docs.google.com/document/d/1l7oFn_q9IAjHlUBQoFWGomjzdsYYMFL0H6ky3UGJlwU/edit?usp=sharing">Poem For the Website</a></li>
+
+    </ul>
+
+    <h1> My Personal Website :) </h1>
+    <img id="logo" alt="Photo of Me"
+         src="~/images/WIN_20241102_21_36_09_Pro.jpg"
+         class="img-responsive rounded" />
+
+
+    <div class="container mt-5">
+        
+        
+
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Name:</strong> @ViewBag.Name</p>
+                <p><strong>Highest Education:</strong> @ViewBag.Education</p>
+                <p><strong>Birth Place:</strong> @ViewBag.Birth</p>
+            </div>
+        </div>
+
+        <h2>Hobbies:</h2>
+        <ul>
+            @foreach (var hobby in Model.Hobbies)
+            {
+                <li>@hobby</li>
+            }
+        </ul>
+
+        <h2>Favorite Classes:</h2>
+        <ul>
+            @foreach (var className in Model.Classes) 
+            {
+                <li>@className</li>
+            }
+        </ul>
+
+    </div>
+
+    <p>
+       Hello, Welcome to my site, I'm here to tell you about myself. As you know my name is Ethan Norales De La Rosa,
+       I am a current Computer Science major, about to graduate in about a year in the Spring of 2025,
+       I am little nervous as to what my future holds my I am ready for it. <br><br>
+       I often do a bit of poetry from time to time, as you can tell from the navigation menu, I am someone who is ready for whats coming,
+        and that is the master's degree. I am currently applying to a multitude of colleges, but so far doing good!
+        As for my goals, I am to learn as much as I can when I can. Learn about the different aspects and challenges when it comes to the ideas of coding. 
+        I was born in Japan, moved to Oak Harbor when I was younger, then later stayed here in Texas when I was about 8 or 9. 
+        I graduated with an associates in Del Mar College here in Corpus while graduating from Collegiate High School. 
+
+    </p>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ethan Norales De La Rosa. All rights reserved.</p>
+    </footer>
+
+    </body>
+
+
+</html>
