@@ -15,7 +15,7 @@ namespace Assignment_3.Controllers
             var holdModel = new Hold
             {
                 Hobbies = new List<string> { "Video Games", "Poetry", "Reading" },
-                Classes = new List<string> { "Software Engineering", "Computing Ethics", "Operating Systems" }
+                Classes = new List<string> { "Software Engineering", "Computing Ethics", "Operating Systems", "Intro to Database Systems" }
             };
 
             return View(holdModel);
