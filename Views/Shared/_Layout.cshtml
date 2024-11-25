@@ -20,12 +20,17 @@
         <nav class="fixed-top navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">EHA News</a>
-                <div class="navbar-collapse d-sm-inline-flex navbar-nav flex-grow-1">
+                <div class="navbar-collapse d-sm-inline-flex navbar-nav flex-grow-1 mr-auto">
                     <a class="nav-item nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
                     <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Finance</a>
                     <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Computing</a>
                     <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Politics</a>
                     <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Entertainment</a>
+                </div>
+
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link text-light" asp-controller="Account" asp-action="Index">Sign Up</a>
+                    <a class="nav-item nav-link text-light" asp-controller="Account" asp-action="Index">Login</a>
                 </div>
             </div>
         </nav>
