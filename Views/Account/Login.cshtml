@@ -1,18 +1,27 @@
-﻿@model EN_Assignment5.Models.Hold
+﻿@using EHA_News.Models
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Log In</title>
-    <link rel="stylesheet" href="~/css/site.css" />
+@model LoginModel
 
-</head>
-    <body>
-    
-    
+@{
+    ViewData["Title"] = "Login";
+}
 
-    </body>
+<h1>Login</h1>
 
+<form asp-action="Login" method="post">
+    <div class="form-group col-md-5">
+        <label asp-for="Username"> Email - </label>
+        <input asp-for="Username" class="form-control" />
+    </div>
 
-</html>
+    <div class="form-group col-md-5">
+        <label asp-for="Password"> Password - </label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" type="submit"> Sign In</button>
+
+    <div asp-validation-summary="All"
+         class="text-danger">
+    </div>
+</form>
