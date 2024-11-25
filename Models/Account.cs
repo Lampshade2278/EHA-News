@@ -15,7 +15,7 @@
         // Validate user credentials
         public bool Validate(string enteredUsername, string enteredPassword)
         {
-            return Username == enteredUsername && Password == enteredPassword;
+            return AccountID == enteredUsername && Password == enteredPassword;
         }
     }
 }
