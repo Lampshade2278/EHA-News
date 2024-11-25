@@ -1,12 +1,12 @@
 ﻿namespace EHA_News.Models
 {
-    public class Accounts
+    public class Account
     {
         private string Username { get; set; }
         private string Password { get; set; }
 
         // Constructor
-        public Accounts(string username, string password)
+        public Account(string username, string password)
         {
             Username = username;
             Password = password;
