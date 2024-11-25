@@ -3,22 +3,45 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewData["Title"] - Personal Website</title>
-    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - EHA-News</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha-long-hash_code" crossorigin="anonymous">
 
     <script src="~/lib/jquery/jquery.min.js"></script>
-    <script src="~/lib/popper.js/popper.min.js"></script>
-    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/css/bootstrap.min.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body>
-    @RenderBody()
+    <header>
+        <nav class="fixed-top navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">EHA News</a>
+                <div class="navbar-collapse d-sm-inline-flex navbar-nav flex-grow-1">
+                    <a class="nav-item nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Finance</a>
+                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Computing</a>
+                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Politics</a>
+                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Entertainment</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="fixed-bottom footer bg-dark text-light">
+        <div class="container">
+            &copy; EHA News LLC. - November 24, 2024 <br>
+            All Rights Reserved
+        </div>
+    </footer>
 </body>
-
-
 </html>
