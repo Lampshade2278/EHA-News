@@ -2,13 +2,13 @@
 {
     public class Account
     {
-        private string Username { get; set; }
+        private string AccountID { get; set; }
         private string Password { get; set; }
 
         // Constructor
         public Account(string username, string password)
         {
-            Username = username;
+            AccountID = username;
             Password = password;
         }
 
