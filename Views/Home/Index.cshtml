@@ -1,5 +1,7 @@
-﻿
-
+﻿@model EN_Assignment5.Models.Hold
+@model IEnumerable<EHA_News.Models.Article>
+<!DOCTYPE html>
+<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Home Page</title>
@@ -13,30 +15,69 @@
         <li><a href="https://localhost:7080/">Home</a></li>
         <li><a href="https://docs.google.com/document/d/1l7oFn_q9IAjHlUBQoFWGomjzdsYYMFL0H6ky3UGJlwU/edit?usp=sharing">Poem For the Website</a></li>
 
-    </ul>
+<h1>Articles</h1>
 
-    <h1> My Personal Website :) </h1>
-    <img id="logo" alt="Photo of Me"
-         src="~/images/WIN_20241102_21_36_09_Pro.jpg"
-         class="img-responsive rounded" />
+<!-- Form to create a new article -->
+<h2>Create New Article</h2>
+<form asp-action="Index" method="post">
+    <div class="form-group">
+        <label asp-for="Headline" class="control-label">Headline</label>
+        <input asp-for="Headline" class="form-control" />
+        <span asp-validation-for="Headline" class="text-danger"></span>
+    </div>
 
+    <div class="form-group">
+        <label asp-for="Content" class="control-label">Content</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
 
-    <div class="container mt-5">
-        
-        
+    <div class="form-group">
+        <label asp-for="Author" class="control-label">Author</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <p><strong>Name:</strong> @ViewBag.Name</p>
-                <p><strong>Highest Education:</strong> @ViewBag.Education</p>
-                <p><strong>Birth Place:</strong> @ViewBag.Birth</p>
-            </div>
-        </div>
+    <div class="form-group">
+        <label asp-for="Category" class="control-label">Category</label>
+        <input asp-for="Category" class="form-control" />
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DatePublished" class="control-label">Date Published</label>
+        <input asp-for="DatePublished" type="date" class="form-control" />
+        <span asp-validation-for="DatePublished" class="text-danger"></span>
+    </div>
 
        
 
     </div>
+    <button type="submit" class="btn btn-primary">Create Article</button>
+</form>
+
+<!-- Display validation summary if there are errors -->
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<hr />
+
+<!-- List of articles -->
+<h2>Article List</h2>
+<div class="article-list">
+    @foreach (var article in Model)
+    {
+        <div class="article">
+            <h3>@article.Headline</h3>
+            <p><strong>Author:</strong> @article.Author</p>
+            <p><strong>Category:</strong> @article.Category</p>
+            <p>@article.Content</p>
+            <p><strong>Published:</strong> @article.DatePublished.ToShortDateString()</p>
+        </div>
+    }
+</div>
 
   
 
 
+
+</html>
