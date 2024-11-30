@@ -2,8 +2,7 @@
 @model IEnumerable<EHA_News.Models.Article>
 <!DOCTYPE html>
 <html>
-<head>
-  
+
 
 @{
     ViewData["Title"] = "Articles";
@@ -11,54 +10,13 @@
 
 <h1>Articles</h1>
 
-<!-- Form to create a new article -->
-<h2>Create New Article</h2>
-<form asp-action="Index" method="post">
-    <div class="form-group">
-        <label asp-for="Headline" class="control-label">Headline</label>
-        <input asp-for="Headline" class="form-control" />
-        <span asp-validation-for="Headline" class="text-danger"></span>
-    </div>
+<a href="@Url.Action("Create")" class="btn btn-primary">Write New Article</a>
 
-    <div class="form-group">
-        <label asp-for="Content" class="control-label">Content</label>
-        <textarea asp-for="Content" class="form-control"></textarea>
-        <span asp-validation-for="Content" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Author" class="control-label">Author</label>
-        <input asp-for="Author" class="form-control" />
-        <span asp-validation-for="Author" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Category" class="control-label">Category</label>
-        <input asp-for="Category" class="form-control" />
-        <span asp-validation-for="Category" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="DatePublished" class="control-label">Date Published</label>
-        <input asp-for="DatePublished" type="date" class="form-control" />
-        <span asp-validation-for="DatePublished" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Create Article</button>
-</form>
-
-<!-- Display validation summary if there are errors -->
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-<hr />
-
-<!-- List of articles -->
-<h2>Article List</h2>
 <div class="article-list">
     @foreach (var article in Model)
     {
         <div class="article">
-            <h3>@article.Headline</h3>
+            <h2>@article.Headline</h2>
             <p><strong>Author:</strong> @article.Author</p>
             <p><strong>Category:</strong> @article.Category</p>
             <p>@article.Content</p>
@@ -66,6 +24,7 @@
         </div>
     }
 </div>
+
 
 
 </html>

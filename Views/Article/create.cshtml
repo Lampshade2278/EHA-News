@@ -1,0 +1,44 @@
+﻿@model EHA_News.Models.Article
+
+@{
+    ViewData["Title"] = "Create Article";
+}
+
+<h1>Create New Article</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Headline" class="control-label">Headline</label>
+        <input asp-for="Headline" class="form-control" />
+        <span asp-validation-for="Headline" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Content" class="control-label">Content</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author" class="control-label">Author</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Category" class="control-label">Category</label>
+        <input asp-for="Category" class="form-control" />
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DatePublished" class="control-label">Date Published</label>
+        <input asp-for="DatePublished" type="date" class="form-control" />
+        <span asp-validation-for="DatePublished" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Article</button>
+</form>
+
+<!-- Display validation messages if any -->
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
