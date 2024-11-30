@@ -2,16 +2,48 @@
 @model IEnumerable<EHA_News.Models.Article>
 <!DOCTYPE html>
 <html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="~/css/site.css" />
 
+</head>
 
-@{
-    ViewData["Title"] = "Articles";
-}
+    <a class="btn btn-secondary" asp-controller="Article" asp-action="View_Article">Generic Article</a>
+
+    <ul class="nav-menu" style="list-style-type: none;">
+        <li><a href="https://localhost:7080/">Home</a></li>
+        <li><a href="https://docs.google.com/document/d/1l7oFn_q9IAjHlUBQoFWGomjzdsYYMFL0H6ky3UGJlwU/edit?usp=sharing">Poem For the Website</a></li>
 
 <h1>Articles</h1>
 
 <a href="@Url.Action("Create")" class="btn btn-primary">Write New Article</a>
 
+    <div class="form-group">
+        <label asp-for="Category" class="control-label">Category</label>
+        <input asp-for="Category" class="form-control" />
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DatePublished" class="control-label">Date Published</label>
+        <input asp-for="DatePublished" type="date" class="form-control" />
+        <span asp-validation-for="DatePublished" class="text-danger"></span>
+    </div>
+
+       
+
+    </div>
+    <button type="submit" class="btn btn-primary">Create Article</button>
+</form>
+
+<!-- Display validation summary if there are errors -->
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<hr />
+
+<!-- List of articles -->
+<h2>Article List</h2>
 <div class="article-list">
     @foreach (var article in Model)
     {
@@ -24,6 +56,8 @@
         </div>
     }
 </div>
+
+  
 
 
 
