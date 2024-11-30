@@ -2,12 +2,12 @@
 {
     public class Article
     {
-        private string Headline { get; set; }
+        public string Headline { get; set; }
 
         public Article(string headline)
         {
             Headline = headline;
         }
-
     }
+
 }
