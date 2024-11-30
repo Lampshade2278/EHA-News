@@ -5,6 +5,9 @@ namespace EHA_News.Controllers
 {
     public class AccountController : Controller
     {
+        // Replace with a real database or data store
+        private static readonly List<Account> AccountsDatabase = new();
+
         public IActionResult Index()
         {
             return View();
@@ -13,24 +16,38 @@ namespace EHA_News.Controllers
         [HttpGet]
         public IActionResult Signup()
         {
-            /* Create new account to put in database */
-            var account = new Account("","");
+            // Initialize an empty account model for the view
+            var account = new Account("", "");
             return View(account);
         }
 
         [HttpPost]
         public IActionResult Signup(Account account)
         {
-            /*Add functions to Check Name and Password requirements, 
-             put account in database, and then Redirect to home */
+            if (!ModelState.IsValid)
+            {
+                // If validation fails, reload the view with validation messages
+                return View(account);
+            }
 
-            return View();
+            // Validate name and password requirements
+            if (!IsValidAccount(account))
+            {
+                ModelState.AddModelError("", "Invalid username or password requirements.");
+                return View(account);
+            }
+
+            // Simulate adding the account to a database
+            AccountsDatabase.Add(account);
+
+            // Redirect to a success page
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         public IActionResult Login()
         {
-            /* Create container to hold credentials during login */
+            // Initialize a login model for the view
             var login = new LoginModel();
             return View(login);
         }
@@ -38,9 +55,38 @@ namespace EHA_News.Controllers
         [HttpPost]
         public IActionResult Login(LoginModel login)
         {
-            /*Add functions to Check Credentials and then Redirect to home */
+            if (!ModelState.IsValid)
+            {
+                // If validation fails, reload the view with validation messages
+                return View(login);
+            }
 
-            return View();
+            // Validate credentials
+            var account = AccountsDatabase.FirstOrDefault(a => a.Validate(login.Username, login.Password));
+            if (account != null)
+            {
+                // Redirect to home or a dashboard upon successful login
+                return RedirectToAction("Index", "Home");
+            }
+
+            // Show an error message for invalid credentials
+            ModelState.AddModelError("", "Invalid username or password.");
+            return View(login);
+        }
+
+        private bool IsValidAccount(Account account)
+        {
+            // Example validation rules: username and password length, confirm password match
+            if (string.IsNullOrEmpty(account.AccountId) || account.AccountId.Length < 5)
+                return false;
+
+            if (string.IsNullOrEmpty(account.Password) || account.Password.Length < 8 || !account.Password.Any(char.IsDigit))
+                return false;
+
+            if (account.Password != account.ConfirmPassword)
+                return false;
+
+            return true;
         }
     }
 }
