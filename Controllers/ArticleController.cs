@@ -4,7 +4,7 @@ namespace EHA_News.Controllers
 {
     public class ArticleController : Controller
     {
-        public IActionResult Index()
+        public IActionResult View_Article()
         {
             return View();
         }
