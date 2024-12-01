@@ -1,34 +1,40 @@
-﻿
-@model IEnumerable<EHA_News.Models.Article>
+﻿@model IEnumerable<EHA_News.Models.Article>
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Home Page</title>
+    <title>Articles</title>
     <link rel="stylesheet" href="~/css/site.css" />
-
 </head>
 
+<body>
     <a class="btn btn-secondary" asp-controller="Article" asp-action="View_Article">Generic Article</a>
 
-<h1>Articles</h1>
+    <h1>Articles</h1>
 
-<a href="@Url.Action("Create")" class="btn btn-primary">Write New Article</a>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Write New Article</a>
 
-    
-<hr />
+    <hr />
 
-<!-- List of articles -->
-<h2>Article List</h2>
-<div class="article-list">
-    @foreach (Article article in Model)
+    <!-- List of articles -->
+    <h2>Article List</h2>
+    @if (Model != null && Model.Any())
     {
-        <div class="article">
-            <h2>@article.Headline</h2>
-            <p><strong>Author:</strong> @article.Author</p>
-            <p><strong>Category:</strong> @article.Category</p>
-            <p>@article.Content</p>
-            <p><strong>Published:</strong> @article.DatePublished.ToShortDateString()</p>
+        <div class="article-list">
+            @foreach (var article in Model)
+            {
+                <div class="article">
+                    <h2>@article.Headline</h2>
+                    <p><strong>Author:</strong> @article.Author</p>
+                    <p><strong>Category:</strong> @article.Category</p>
+                    <p>@article.Content</p>
+                    <p><strong>Published:</strong> @article.DatePublished.ToShortDateString()</p>
+                </div>
+                <hr />
+            }
         </div>
     }
-</div>
-
+    else
+    {
+        <p>No articles available. Be the first to write one!</p>
+    }
+</body>
