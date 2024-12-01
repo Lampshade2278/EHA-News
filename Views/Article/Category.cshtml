@@ -1,7 +1,5 @@
-﻿
+﻿@model IEnumerable<EHA_News.Models.Article>
 
-<!DOCTYPE html>
-<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Category</title>
@@ -9,8 +7,27 @@
 
 </head>
     <body>
-
+    <!-- List of articles -->
+    <h2>Article List</h2>
+    @if (Model != null && Model.Any())
+    {
+        <div class="article-list">
+            @foreach (var article in Model)
+            {
+                <div class="article">
+                    <h2>@article.Headline</h2>
+                    <p><strong>Author:</strong> @article.Author</p>
+                    <p>@article.Synopsis</p>
+                    <p><strong>Published:</strong> @article.DatePublished.ToShortDateString()</p>
+                </div>
+                <hr />
+            }
+        </div>
+    }
+    else
+    {
+        <p>No articles available. Be the first to write one!</p>
+    }
     </body>
 
 
-</html>

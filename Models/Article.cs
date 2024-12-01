@@ -5,18 +5,19 @@
         
         public int ArticleId { get; set; }
         public string Headline { get; set; }
-        public string Content { get; set; }
+        public string Synopsis { get; set; }
         public string Author { get; set; }
-        public string Category { get; set; }
+        public string CategoryId { get; set; }
+        public Category Category { get; set; }
         public DateTime DatePublished { get; set;}
 
         // Constructor with multiple fields
-        public Article(string headline, string content, string author, string category)
+        public Article(string headline, string synopsis, string author, string category)
         {
             Headline = headline;
-            Content = content;
+            Synopsis = synopsis;
             Author = author;
-            Category = category;
+            CategoryId = category;
         }
     }
 }
