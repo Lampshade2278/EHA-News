@@ -14,18 +14,18 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-/*
+
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddDbContext<ArticleContextInfo>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("ArticleContext")));
 
     services.AddDbContext<CategoryContextInfo>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("CategoryContext")));
+        options.UseSqlServer(Configuration.GetConnectionString("AccountContext")));
 
     services.AddControllersWithViews();
 }
-*/
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

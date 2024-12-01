@@ -7,7 +7,7 @@ using EHA_News.Models;
 
 namespace EHA_News.Migration
 {
-    public class CatergoryContextInfo
+    public class AccountContextInfo
     {
     }
 }
