@@ -1,31 +1,26 @@
+using Microsoft.EntityFrameworkCore;
 using EHA_News.Migration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
 builder.Services.AddControllersWithViews();
+
+// Add EF Core DbContexts
+builder.Services.AddDbContext<ArticleContextInfo>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ArticleContext")));
+
+builder.Services.AddDbContext<AccountContextInfo>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AccountContext")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Article/Error"); // Updated to handle errors in ArticleController
     app.UseHsts();
 }
-
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddDbContext<ArticleContextInfo>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("ArticleContext")));
-
-    services.AddDbContext<CategoryContextInfo>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("AccountContext")));
-
-    services.AddControllersWithViews();
-}
-
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -34,8 +29,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Update the default controller route to ArticleController
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Article}/{action=Index}/{id?}");
 
 app.Run();
