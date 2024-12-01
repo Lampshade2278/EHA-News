@@ -14,9 +14,15 @@ namespace EHA_News.Controllers
             return View(Articles);
         }
 
-       
+
+        public IActionResult create()
+        {
+            Article NewArticle = new("","","","");
+            return View(NewArticle);
+        }
+
         [HttpPost]
-        public IActionResult Index(Article article)
+        public IActionResult create(Article article)
         {
             if (ModelState.IsValid)
             {
@@ -30,5 +36,12 @@ namespace EHA_News.Controllers
             ViewBag.Articles = Articles; 
             return View("Index", Articles);
         }
+
+        public IActionResult View_Article()
+        {
+            return View();
+        }
+
+
     }
 }
