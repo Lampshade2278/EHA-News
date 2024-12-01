@@ -11,6 +11,9 @@
         public Category Category { get; set; }
         public DateTime DatePublished { get; set;}
 
+        // Constructor with no arguments
+        public Article() { }
+
         // Constructor with multiple fields
         public Article(string headline, string synopsis, string author, string category)
         {
