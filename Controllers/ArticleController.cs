@@ -14,20 +14,20 @@ namespace EHA_News.Controllers
             return View(Articles);
         }
 
-        // POST: Handle article submission
+       
         [HttpPost]
         public IActionResult Index(Article article)
         {
             if (ModelState.IsValid)
             {
-                // Add article to the list
+
                 Articles.Add(article);
                 
                 return RedirectToAction("Index");
             }
 
             
-            ViewBag.Articles = Articles; // Pass articles to the view for display
+            ViewBag.Articles = Articles; 
             return View("Index", Articles);
         }
     }
