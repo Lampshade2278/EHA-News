@@ -6,6 +6,7 @@
         public string Content { get; set; }
         public string Author { get; set; }
         public string Category { get; set; }
+        public DateTime DatePublished { get; set;}
 
         // Constructor with multiple fields
         public Article(string headline, string content, string author, string category)

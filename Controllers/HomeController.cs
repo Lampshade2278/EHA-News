@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Assignment_3.Controllers
+namespace EHA_News.Controllers
 {
     public class HomeController : Controller
     {
