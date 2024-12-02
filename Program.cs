@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using EHA_News.Migration;
+using EHA_News.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,10 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddDbContext<ArticleContextInfo>(options =>
+builder.Services.AddDbContext<ArticleContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ArticleContext")));
 
-builder.Services.AddDbContext<AccountContextInfo>(options =>
+builder.Services.AddDbContext<AccountContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AccountContext")));
 
 var app = builder.Build();
