@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EHA_News.Migrations.Article
+namespace EHA_News.Migrations
 {
     [DbContext(typeof(ArticleContext))]
-    [Migration("20241202034124_InitialAccount")]
-    partial class InitialAccount
+    [Migration("20241202034124_InitialArticle")]
+    partial class InitialArticle
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
