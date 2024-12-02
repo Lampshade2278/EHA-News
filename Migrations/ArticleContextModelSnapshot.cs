@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EHA_News.Migrations.Article
+namespace EHA_News.Migrations
 {
     [DbContext(typeof(ArticleContext))]
     partial class ArticleContextModelSnapshot : ModelSnapshot

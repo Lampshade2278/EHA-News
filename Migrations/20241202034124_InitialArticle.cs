@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace EHA_News.Migrations.Article
+namespace EHA_News.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialAccount : Migration
+    public partial class InitialArticle : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
