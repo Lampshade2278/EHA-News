@@ -1,24 +1,31 @@
-﻿@{
+﻿@model EHA_News.Models.Article
+
+@{
     ViewData["Title"] = "View Article";
 }
 
 <div class="container bg-black text-white pt-3 mb-5 font-weight-bold">
+    
+    <div class="row mb-2">
+        <a class="text-light" asp-controller="Article" asp-action="Category" asp-route-categoryID=@Model.CategoryId>@Model.Category.CategoryName</a>
+    </div>
+    
     <h1>
-        Title of Article (Data Driven)
+        @Model.Headline
     </h1>
 
     <div class="row mb-2">
-        <h5> The synopsis goes here and it's gonna be a bit of a read, but there's a bit of content. This is gonna be data driven too.</h5>
+        <h5> @Model.Synopsis</h5>
     </div>
     <div class="row">
         <div class="col">
             <p>
-                Author (Data Driven)
+                Written by: @Model.Author
             </p>
         </div>
         <div class="col">
             <p>
-                Date (Data Driven)
+                Published On: @Model.DatePublished.ToLongDateString()
             </p>
         </div>
     </div>

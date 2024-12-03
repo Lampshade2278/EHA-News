@@ -15,7 +15,7 @@
             @foreach (var article in Model)
             {
                 <div class="article">
-                    <h2>@article.Headline</h2>
+                    <a class="text-dark" asp-controller="Article" asp-action="View_Article" asp-route-articleID="@article.ArticleId"><h3>@article.Headline</h3></a>
                     <p><strong>Author:</strong> @article.Author</p>
                     <p>@article.Synopsis</p>
                     <p><strong>Published:</strong> @article.DatePublished.ToShortDateString()</p>

@@ -16,8 +16,8 @@ namespace EHA_News.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Categories = articleContext.Categories.OrderBy(c => c.CategoryName).ToList();
             return RedirectToAction("Index", "Article");
         }
+
     }
 }

@@ -17,7 +17,6 @@ namespace EHA_News.Controllers
         public IActionResult Index()
         {
             ViewBag.Categories = context.Categories.OrderBy(c => c.CategoryName).ToList();
-            var thing = context.Articles;
             return View(context.Articles);
         }
 
@@ -51,7 +50,6 @@ namespace EHA_News.Controllers
         
         public IActionResult Category(String categoryID)
         {
-            ViewBag.Categories = context.Categories.OrderBy(c => c.CategoryName).ToList();
 
             var SelectedCategory = context.Categories.Find(categoryID).CategoryName;
 
@@ -62,9 +60,10 @@ namespace EHA_News.Controllers
             return View(CategoryList);
         }
 
-        public IActionResult View_Article()
+        public IActionResult View_Article(int articleID)
         {
-            return View();
+            ViewBag.Categories = context.Categories.OrderBy(c => c.CategoryName).ToList();
+            return View(context.Articles.Find(articleID));
         }
 
 
