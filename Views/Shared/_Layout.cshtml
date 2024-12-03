@@ -18,16 +18,18 @@
     <header>
         <nav class="navbar-static-top navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">EHA News</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/EHA_News_Logo.png" width="100"></a>
                 <div class="navbar-collapse d-sm-inline-flex navbar-nav flex-grow-1 mr-auto">
                     <a class="nav-item nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
-                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Finance</a>
-                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Computing</a>
-                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Politics</a>
-                    <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Index">Entertainment</a>
+                    
+                    @foreach (Category c in ViewBag.Categories)
+                    {
+                        <a class="nav-item nav-link text-light" asp-controller="Article" asp-action="Category" asp-route-categoryID="@c.CategoryId">@c.CategoryName</a>
+                    }
+
                 </div>
 
-                <div class="navbar-nav">
+                <div class="navbar-nav ">
                     <a class="nav-item nav-link text-light" asp-controller="Account" asp-action="Signup">Sign Up</a>
                     <a class="nav-item nav-link text-light" asp-controller="Account" asp-action="Login">Login</a>
                 </div>
