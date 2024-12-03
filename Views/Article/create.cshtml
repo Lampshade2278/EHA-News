@@ -25,9 +25,17 @@
         <span asp-validation-for="Author" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="CategoryId" class="control-label">Category</label>
-        <input asp-for="CategoryId" class="form-control" />
+    <div class="form-group col-md-5">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" class="form-control">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">
+                    @c.CategoryName
+                </option>
+            }
+        </select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
 

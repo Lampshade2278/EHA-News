@@ -6,35 +6,45 @@ namespace EHA_News.Controllers
 {
     public class ArticleController : Controller
     {
-        private static List<Article> Articles = new List<Article>();
 
-        
+        ArticleContext context { get; set; }
+        public ArticleController(ArticleContext ctx)
+        {
+            context = ctx;
+        }
+
+
         public IActionResult Index()
         {
-            return View(Articles);
+            ViewBag.Categories = context.Categories.OrderBy(c => c.CategoryName).ToList();
+            return View(context.Articles);
         }
 
 
         public IActionResult create()
         {
-            Article NewArticle = new("","","","");
+            ViewBag.Categories = context.Categories.OrderBy(c => c.CategoryName).ToList();
+            Article NewArticle = new();
             return View(NewArticle);
         }
 
         [HttpPost]
         public IActionResult create(Article article)
         {
+            ViewBag.Categories = context.Categories.OrderBy(c => c.CategoryName).ToList();
             if (ModelState.IsValid)
             {
 
-                Articles.Add(article);
-                
-                return RedirectToAction("Index");
+                article.DatePublished = DateTime.Now;
+                context.Articles.Add(article);
+                context.SaveChanges();
+
+                return View("Index", context.Articles);
             }
 
             
-            ViewBag.Articles = Articles; 
-            return View("Index", Articles);
+            ViewBag.Articles = context.Articles; 
+            return View(article);
         }
 
         public IActionResult View_Article()
