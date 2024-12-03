@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EHA_News.Migrations
+namespace EHA_News.Migrations.Article
 {
     [DbContext(typeof(ArticleContext))]
     partial class ArticleContextModelSnapshot : ModelSnapshot
@@ -61,7 +61,7 @@ namespace EHA_News.Migrations
                             ArticleId = 1,
                             Author = "John Doe II",
                             CategoryId = "C",
-                            DatePublished = new DateTime(2024, 12, 1, 21, 41, 15, 429, DateTimeKind.Local).AddTicks(5707),
+                            DatePublished = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Headline = "Man creates Database in asp.NET Server Core 2022. Earns $1 Million",
                             Synopsis = "This is a test synopsis, and therefore is not at all a good read."
                         });

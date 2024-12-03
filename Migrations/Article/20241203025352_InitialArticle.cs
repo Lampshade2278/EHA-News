@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace EHA_News.Migrations
+namespace EHA_News.Migrations.Article
 {
     /// <inheritdoc />
     public partial class InitialArticle : Migration
@@ -62,7 +62,7 @@ namespace EHA_News.Migrations
             migrationBuilder.InsertData(
                 table: "Articles",
                 columns: new[] { "ArticleId", "Author", "CategoryId", "DatePublished", "Headline", "Synopsis" },
-                values: new object[] { 1, "John Doe II", "C", new DateTime(2024, 12, 1, 21, 41, 15, 429, DateTimeKind.Local).AddTicks(5707), "Man creates Database in asp.NET Server Core 2022. Earns $1 Million", "This is a test synopsis, and therefore is not at all a good read." });
+                values: new object[] { 1, "John Doe II", "C", new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Man creates Database in asp.NET Server Core 2022. Earns $1 Million", "This is a test synopsis, and therefore is not at all a good read." });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Articles_CategoryId",
