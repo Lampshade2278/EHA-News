@@ -25,7 +25,7 @@ namespace EHA_News.Models
                 new Article
                 {
                     ArticleId = 1,
-                    DatePublished = DateTime.Now,
+                    DatePublished = new DateTime(2024, 4, 1),
                     Author = "John Doe II",
                     Synopsis = "This is a test synopsis, and therefore is not at all a good read.",
                     Headline = "Man creates Database in asp.NET Server Core 2022. Earns $1 Million",
